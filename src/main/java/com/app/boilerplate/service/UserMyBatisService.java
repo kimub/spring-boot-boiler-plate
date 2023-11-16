@@ -1,20 +1,21 @@
 package com.app.boilerplate.service;
 
-import com.app.boilerplate.mapper.UserMapper;
 import com.app.boilerplate.dto.request.UserRequest;
 import com.app.boilerplate.dto.response.UserResponse;
+import com.app.boilerplate.mapper.UserMapper;
+import com.app.boilerplate.repository.UserRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService {
+public class UserMyBatisService {
   private final UserMapper userMapper;
 
-  public UserService(UserMapper userMapper) {
+  public UserMyBatisService(UserMapper userMapper, UserRepository userRepository) {
     this.userMapper = userMapper;
   }
 
-  public UserResponse getUserById(int id) {
+  public UserResponse getUserById(Long id) {
     return userMapper.getUserById(id);
   }
 
@@ -26,11 +27,11 @@ public class UserService {
     userMapper.insertUser(userRequest);
   }
 
-  public void updateUser(int id, UserRequest userRequest) {
+  public void updateUser(Long id, UserRequest userRequest) {
     userMapper.updateUser(id, userRequest);
   }
 
-  public void deleteUser(int id) {
+  public void deleteUser(Long id) {
     userMapper.deleteUser(id);
   }
 
