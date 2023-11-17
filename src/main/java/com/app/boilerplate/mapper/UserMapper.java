@@ -8,9 +8,9 @@ import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface UserMapper {
-  UserResponse getUserById(Long id);
-  List<UserResponse> getAllUser();
-  void insertUser(UserRequest userRequest);
+  UserResponse findUserById(Long id);
+  List<UserResponse> findAllUser();
+  void saveUser(UserRequest userRequest);
   void updateUser(@Param("id") Long id, @Param("userRequest") UserRequest userRequest);
   void deleteUser(Long id);
 }

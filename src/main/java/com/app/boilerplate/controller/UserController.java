@@ -30,26 +30,26 @@ public class UserController {
   }
 
   @GetMapping
-  public ResponseEntity<CommonResponse<List<UserResponse>>> getUsers() {
+  public ResponseEntity<CommonResponse<List<UserResponse>>> findUsers() {
 //    return ResponseEntity.ok(userMyBatisService.getAllUser());
 
 //    return ResponseEntity.status(HttpStatus.OK).body(userMyBatisService.getAllUser());
 
     return ResponseEntity.status(HttpStatus.OK).body(
         CommonResponse.<List<UserResponse>>builder().responseCode("-1").responseMessage("안녕하세요.")
-            .data(userMyBatisService.getAllUser()).build());
+            .data(userMyBatisService.findAllUser()).build());
   }
 
   @GetMapping("/{id}")
-  public ResponseEntity<CommonResponse<UserResponse>> getUser(@PathVariable Long id) {
+  public ResponseEntity<CommonResponse<UserResponse>> findUser(@PathVariable Long id) {
     return ResponseEntity.status(HttpStatus.OK).body(
         CommonResponse.<UserResponse>builder().responseCode("-2").responseMessage("안녕하세요.")
-            .data(userMyBatisService.getUserById(id)).build());
+            .data(userMyBatisService.findUserById(id)).build());
   }
 
   @PostMapping
-  public void postUser(@RequestBody UserRequest userRequest) {
-    userMyBatisService.insertUser(userRequest);
+  public void saveUser(@RequestBody UserRequest userRequest) {
+    userMyBatisService.saveUser(userRequest);
   }
 
   @PutMapping("/{id}")

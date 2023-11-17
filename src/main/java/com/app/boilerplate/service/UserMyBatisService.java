@@ -15,16 +15,16 @@ public class UserMyBatisService {
     this.userMapper = userMapper;
   }
 
-  public UserResponse getUserById(Long id) {
-    return userMapper.getUserById(id);
+  public UserResponse findUserById(Long id) {
+    return userMapper.findUserById(id);
   }
 
-  public List<UserResponse> getAllUser() {
-    return userMapper.getAllUser();
+  public List<UserResponse> findAllUser() {
+    return userMapper.findAllUser();
   }
 
-  public void insertUser(UserRequest userRequest) {
-    userMapper.insertUser(userRequest);
+  public void saveUser(UserRequest userRequest) {
+    userMapper.saveUser(userRequest);
   }
 
   public void updateUser(Long id, UserRequest userRequest) {
